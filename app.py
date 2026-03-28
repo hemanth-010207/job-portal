@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 #-----------------------------
 
-DATABASE SETUP (Persistent Storage)
+#DATABASE SETUP (Persistent Storage)
 
 #-----------------------------
 
@@ -17,7 +17,7 @@ c.execute(""" CREATE TABLE IF NOT EXISTS users ( username TEXT PRIMARY KEY, pass
 
 #-----------------------------
 
-JOB DATASET (Extended)
+#JOB DATASET (Extended)
 
 #-----------------------------
 
@@ -27,7 +27,7 @@ df = pd.DataFrame(data)
 
 #-----------------------------
 
-HELPER FUNCTIONS
+#HELPER FUNCTIONS
 
 #-----------------------------
 
@@ -41,7 +41,7 @@ def update_user(username, skills, location): c.execute("UPDATE users SET skills=
 
 #-----------------------------
 
-ADVANCED RECOMMENDATION ENGINE
+#ADVANCED RECOMMENDATION ENGINE
 
 #-----------------------------
 
@@ -66,7 +66,7 @@ return df.sort_values(by="Final Score", ascending=False)
 
 #-----------------------------
 
-STREAMLIT UI
+#STREAMLIT UI
 
 #-----------------------------
 
@@ -78,7 +78,7 @@ menu = ["Login", "Register"] choice = st.sidebar.selectbox("Menu", menu)
 
 #-----------------------------
 
-REGISTER
+#REGISTER
 
 #-----------------------------
 
@@ -97,7 +97,7 @@ if st.button("Register"):
 
 #-----------------------------
 
-LOGIN
+#LOGIN
 
 #-----------------------------
 
@@ -118,7 +118,7 @@ if st.button("Login"):
 
 #-----------------------------
 
-DASHBOARD
+#DASHBOARD
 
 #-----------------------------
 
@@ -163,7 +163,7 @@ if st.button("Logout"):
 
 #-----------------------------
 
-RUN
+#RUN
 
 #-----------------------------
 
