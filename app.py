@@ -39,12 +39,11 @@ def hash_password(password):
 def register_user(username, password, skills, location): 
     
     try:
-        
-    c.execute("INSERT INTO users VALUES (?, ?, ?, ?)", (username, hash_password(password), skills, location)) 
-    conn.commit() 
-return True
-except: 
-return False
+        c.execute("INSERT INTO users VALUES (?, ?, ?, ?)", (username, hash_password(password), skills, location)) 
+        conn.commit() 
+        return True
+        except:
+            return False
 
 def login_user(username, password):
     c.execute("SELECT * FROM users WHERE username=? AND password=?", (username, hash_password(password))) 
