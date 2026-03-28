@@ -35,11 +35,20 @@ df = pd.DataFrame(data)
 
 def hash_password(password): return hashlib.sha256(password.encode()).hexdigest()
 
-def register_user(username, password, skills, location): try: c.execute("INSERT INTO users VALUES (?, ?, ?, ?)", (username, hash_password(password), skills, location)) conn.commit() return True except: return False
+def register_user(username, password, skills, location): 
+try: c.execute("INSERT INTO users VALUES (?, ?, ?, ?)", (username, hash_password(password), skills, location)) 
+    conn.commit() 
+return True
+except: 
+return False
 
-def login_user(username, password): c.execute("SELECT * FROM users WHERE username=? AND password=?", (username, hash_password(password))) return c.fetchone()
+def login_user(username, password):
+    c.execute("SELECT * FROM users WHERE username=? AND password=?", (username, hash_password(password))) 
+    return c.fetchone()
 
-def update_user(username, skills, location): c.execute("UPDATE users SET skills=?, location=? WHERE username=?", (skills, location, username)) conn.commit()
+def update_user(username, skills, location):
+    c.execute("UPDATE users SET skills=?, location=? WHERE username=?", (skills, location, username)) 
+    conn.commit()
 
 #-----------------------------
 
