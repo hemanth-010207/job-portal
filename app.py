@@ -190,7 +190,8 @@ if "logged_in" in st.session_state and st.session_state.logged_in:
 
     if st.button("Logout"):
         st.session_state.logged_in = False
-        st.experimental_rerun()    return hashlib.sha256(password.encode()).hexdigest()
+        st.experimental_rerun()    
+        return hashlib.sha256(password.encode()).hexdigest()
 
 def register_user(username, password, skills, location): 
     
