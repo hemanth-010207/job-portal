@@ -88,7 +88,8 @@ st.set_page_config(page_title="Advanced Job Portal", layout="wide")
 
 st.title("🚀 AI Job Recommendation Portal")
 
-menu = ["Login", "Register"] choice = st.sidebar.selectbox("Menu", menu)
+menu = ["Login", "Register"] 
+choice = st.sidebar.selectbox("Menu", menu)
 
 #-----------------------------
 
