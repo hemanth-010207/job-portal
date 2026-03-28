@@ -5,31 +5,31 @@ import hashlib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
------------------------------
+#-----------------------------
 
 DATABASE SETUP (Persistent Storage)
 
------------------------------
+#-----------------------------
 
 conn = sqlite3.connect("users.db", check_same_thread=False) c = conn.cursor()
 
 c.execute(""" CREATE TABLE IF NOT EXISTS users ( username TEXT PRIMARY KEY, password TEXT, skills TEXT, location TEXT ) """) conn.commit()
 
------------------------------
+#-----------------------------
 
 JOB DATASET (Extended)
 
------------------------------
+#-----------------------------
 
 data = { "Job Title": [ "Software Engineer", "Data Analyst", "Web Developer", "ML Engineer", "Business Analyst", "Python Developer", "Frontend Developer", "Backend Developer", "AI Engineer", "Cloud Engineer" ], "Skills": [ "python java algorithms", "excel sql python data analysis", "html css javascript react", "python machine learning deep learning", "communication analytics business", "python django flask api", "html css react ui ux", "nodejs databases api backend", "ai deep learning nlp python", "aws cloud devops docker kubernetes" ], "Location": [ "Hyderabad", "Bangalore", "Chennai", "Hyderabad", "Mumbai", "Pune", "Bangalore", "Delhi", "Hyderabad", "Bangalore" ], "Interview": [ "Coding + HR", "Aptitude + SQL", "Portfolio + HR", "ML Case Study", "GD + HR", "Coding + System Design", "UI Task + HR", "Backend Task + HR", "AI Project Discussion", "Cloud Scenario + HR" ] }
 
 df = pd.DataFrame(data)
 
------------------------------
+#-----------------------------
 
 HELPER FUNCTIONS
 
------------------------------
+#-----------------------------
 
 def hash_password(password): return hashlib.sha256(password.encode()).hexdigest()
 
@@ -39,11 +39,11 @@ def login_user(username, password): c.execute("SELECT * FROM users WHERE usernam
 
 def update_user(username, skills, location): c.execute("UPDATE users SET skills=?, location=? WHERE username=?", (skills, location, username)) conn.commit()
 
------------------------------
+#-----------------------------
 
 ADVANCED RECOMMENDATION ENGINE
 
------------------------------
+#-----------------------------
 
 def recommend_jobs(user_skills, location): df["combined"] = df["Skills"] + " " + df["Job Title"]
 
@@ -64,11 +64,11 @@ df["Final Score"] = df["Score"] + (0.3 * df["Location Match"])
 
 return df.sort_values(by="Final Score", ascending=False)
 
------------------------------
+#-----------------------------
 
 STREAMLIT UI
 
------------------------------
+#-----------------------------
 
 st.set_page_config(page_title="Advanced Job Portal", layout="wide")
 
@@ -76,11 +76,11 @@ st.title("🚀 AI Job Recommendation Portal")
 
 menu = ["Login", "Register"] choice = st.sidebar.selectbox("Menu", menu)
 
------------------------------
+#-----------------------------
 
 REGISTER
 
------------------------------
+#-----------------------------
 
 if choice == "Register": st.subheader("Create Account")
 
@@ -95,11 +95,11 @@ if st.button("Register"):
     else:
         st.error("Username already exists")
 
------------------------------
+#-----------------------------
 
 LOGIN
 
------------------------------
+#-----------------------------
 
 if choice == "Login": st.subheader("Login")
 
@@ -116,11 +116,11 @@ if st.button("Login"):
     else:
         st.error("Invalid credentials")
 
------------------------------
+#-----------------------------
 
 DASHBOARD
 
------------------------------
+#-----------------------------
 
 if "logged_in" in st.session_state and st.session_state.logged_in: st.subheader(f"Welcome {st.session_state.username}")
 
@@ -161,11 +161,11 @@ if st.button("Logout"):
     st.session_state.username = ""
     st.experimental_rerun()
 
------------------------------
+#-----------------------------
 
 RUN
 
------------------------------
+#-----------------------------
 
 pip install streamlit pandas scikit-learn
 
