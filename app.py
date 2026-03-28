@@ -341,4 +341,4 @@ if st.button("Logout"):
 
 #pip install streamlit pandas scikit-learn
 
-streamlit run app.py
+#streamlit run app.py
