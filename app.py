@@ -42,7 +42,7 @@ def register_user(username, password, skills, location):
         c.execute("INSERT INTO users VALUES (?, ?, ?, ?)", (username, hash_password(password), skills, location)) 
         conn.commit() 
         return True
-        except:
+    except:
             return False
 
 def login_user(username, password):
