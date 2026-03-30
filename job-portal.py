@@ -515,8 +515,7 @@ if st.session_state.page=="learn":
         st.rerun()"Accenture",
 "HCL",
 "Capgemini",
-"Tech Mahindra"
-],
+"Tech Mahindra"],
 
 "HR":[
 "hr@tcs.com",
@@ -525,8 +524,7 @@ if st.session_state.page=="learn":
 "hr@accenture.com",
 "hr@hcl.com",
 "jobs@capgemini.com",
-"hr@techmahindra.com"
-],
+"hr@techmahindra.com"],
 
 "Support":[
 "support@tcs.com",
@@ -535,8 +533,7 @@ if st.session_state.page=="learn":
 "support@accenture.com",
 "support@hcl.com",
 "support@capgemini.com",
-"support@techmahindra.com"
-],
+"support@techmahindra.com"],
 
 "Interview":[
 "Coding + HR",
@@ -545,8 +542,7 @@ if st.session_state.page=="learn":
 "ML Case Study",
 "Coding Round",
 "UI Task",
-"Backend Task"
-]
+"Backend Task"]
 
 }
 
